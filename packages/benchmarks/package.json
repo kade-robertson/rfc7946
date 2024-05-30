@@ -1,0 +1,23 @@
+{
+  "name": "@rfc7946/benchmarks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@rfc7946/typebox": "workspace:*",
+    "@sinclair/typebox": "^0.32.0",
+    "ajv": "^8.14.0",
+    "tinybench": "^2.8.0"
+  }
+}

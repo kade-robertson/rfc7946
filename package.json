@@ -1,0 +1,29 @@
+{
+  "name": "rfc7946",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "codegen": "pnpm --filter=@rfc7946/codegen",
+    "benchmarks": "pnpm --filter=@rfc7946/benchmarks",
+    "ts": "pnpm --filter=@rfc7946/ts",
+    "typebox": "pnpm --filter=@rfc7946/typebox",
+    "build": "pnpm codegen start && pnpm i && turbo build",
+    "lint": "biome check packages",
+    "lint:write": "biome check --apply packages"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "20.13.1",
+    "pnpm": "9.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "tsx": "^4.11.0",
+    "turbo": "^1.13.3",
+    "typescript": "^5.4.5"
+  }
+}
