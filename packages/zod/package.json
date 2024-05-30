@@ -1,0 +1,25 @@
+{
+  "name": "@rfc7946/zod",
+  "version": "1.0.0",
+  "author": "Kade Robertson <kade@kaderobertson.dev>",
+  "license": "MIT",
+  "description": "Zod definitions for RFC 7946",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:pkg": "echo '{ \"type\": \"module\" }' > dist/esm/package.json",
+    "build": "pnpm build:cjs && pnpm build:esm && pnpm build:pkg"
+  },
+  "peerDependencies": {
+    "zod": "^3.0.0"
+  }
+}

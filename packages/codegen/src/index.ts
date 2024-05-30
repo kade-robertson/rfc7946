@@ -71,7 +71,7 @@ const Model: TypeBoxModel = {
 const exporters = [
   // makeTypescriptPackage,
   makeTypeboxPackage,
-  // makeZodPackage,
+  makeZodPackage,
   // makeJsonSchemaPackage,
 ];
 

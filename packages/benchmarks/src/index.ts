@@ -1,4 +1,6 @@
 import { FeatureCollection as TypeboxFeatureCollection } from "@rfc7946/typebox";
+import { FeatureCollection as ZodFeatureCollection } from "@rfc7946/zod";
+
 import { Value } from "@sinclair/typebox/value";
 import { TypeCompiler } from "@sinclair/typebox/compiler";
 import { Bench } from "tinybench";
@@ -13,7 +15,7 @@ const CompiledTypeboxFeatureCollection = TypeCompiler.Compile(
   TypeboxFeatureCollection
 );
 
-const bench = new Bench();
+const bench = new Bench({ time: 1000 });
 
 const FIXTURES = await fs.readdir(path.join(import.meta.dirname, "fixtures"));
 const CHECKERS = [
@@ -29,10 +31,10 @@ const CHECKERS = [
     name: "Typebox (compiled)",
     checker: (data: unknown) => CompiledTypeboxFeatureCollection.Check(data),
   },
-  // {
-  //   name: "Zod",
-  //   checker: (data: unknown) => ZodFeatureCollection.parse(data),
-  // },
+  {
+    name: "Zod",
+    checker: (data: unknown) => ZodFeatureCollection.parse(data),
+  },
 ];
 
 for (const fixture of FIXTURES) {

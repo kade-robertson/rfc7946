@@ -16,8 +16,10 @@
   "license": "MIT",
   "dependencies": {
     "@rfc7946/typebox": "workspace:*",
+    "@rfc7946/zod": "workspace:*",
     "@sinclair/typebox": "^0.32.0",
     "ajv": "^8.14.0",
-    "tinybench": "^2.8.0"
+    "tinybench": "^2.8.0",
+    "zod": "^3.0.0"
   }
 }
