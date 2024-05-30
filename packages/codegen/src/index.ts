@@ -72,7 +72,7 @@ const exporters = [
   // makeTypescriptPackage,
   makeTypeboxPackage,
   makeZodPackage,
-  // makeJsonSchemaPackage,
+  makeJsonSchemaPackage,
 ];
 
 for (const exporter of exporters) {
