@@ -118,30 +118,12 @@ export type GeometryCollectionGeometry = {
   type: "GeometryCollection";
   geometries: Array<
     | GeometryCollectionGeometry
-    | {
-        type: "Point";
-        coordinates: [number, number] | [Longitude, Latitude, number];
-      }
-    | {
-        type: "MultiPoint";
-        coordinates: Array<Position>;
-      }
-    | {
-        type: "LineString";
-        coordinates: Array<Position>;
-      }
-    | {
-        type: "MultiLineString";
-        coordinates: Array<LineStringCoordinates>;
-      }
-    | {
-        type: "Polygon";
-        coordinates: Array<Array<Position>>;
-      }
-    | {
-        type: "MultiPolygon";
-        coordinates: Array<PolygonCoordinates>;
-      }
+    | PointGeometry
+    | MultiPointGeometry
+    | LineStringGeometry
+    | MultiLineStringGeometry
+    | PolygonGeometry
+    | MultiPolygonGeometry
   >;
 };
 export const GeometryCollectionGeometry: z.ZodType<GeometryCollectionGeometry> =
