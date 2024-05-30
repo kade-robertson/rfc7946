@@ -6,10 +6,7 @@ import { TypeCompiler } from "@sinclair/typebox/compiler";
 import { Bench } from "tinybench";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { Ajv } from "ajv";
-import { Type } from "@sinclair/typebox";
-// import { validate } from "./ajv.js";
-import { schemas } from "./deref.js";
+import { validate } from "./ajv.js";
 
 const CompiledTypeboxFeatureCollection = TypeCompiler.Compile(
   TypeboxFeatureCollection
@@ -19,10 +16,10 @@ const bench = new Bench({ time: 1000 });
 
 const FIXTURES = await fs.readdir(path.join(import.meta.dirname, "fixtures"));
 const CHECKERS = [
-  // {
-  //   name: "Ajv",
-  //   checker: (data: unknown) => validate(data),
-  // },
+  {
+    name: "Ajv",
+    checker: (data: unknown) => validate(data),
+  },
   {
     name: "Typebox",
     checker: (data: unknown) => Value.Check(TypeboxFeatureCollection, data),

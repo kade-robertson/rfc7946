@@ -15,6 +15,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@rfc7946/json-schema": "workspace:*",
     "@rfc7946/typebox": "workspace:*",
     "@rfc7946/zod": "workspace:*",
     "@sinclair/typebox": "^0.32.0",
