@@ -8,9 +8,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { validate } from "./ajv.js";
 
-const CompiledTypeboxFeatureCollection = TypeCompiler.Compile(
-  TypeboxFeatureCollection
-);
+// const CompiledTypeboxFeatureCollection = TypeCompiler.Compile(
+//   TypeboxFeatureCollection
+// );
 
 const bench = new Bench({ time: 1000 });
 
@@ -20,14 +20,14 @@ const CHECKERS = [
     name: "Ajv",
     checker: (data: unknown) => validate(data),
   },
-  {
-    name: "Typebox",
-    checker: (data: unknown) => Value.Check(TypeboxFeatureCollection, data),
-  },
-  {
-    name: "Typebox (compiled)",
-    checker: (data: unknown) => CompiledTypeboxFeatureCollection.Check(data),
-  },
+  // {
+  //   name: "Typebox",
+  //   checker: (data: unknown) => Value.Check(TypeboxFeatureCollection, data),
+  // },
+  // {
+  //   name: "Typebox (compiled)",
+  //   checker: (data: unknown) => CompiledTypeboxFeatureCollection.Check(data),
+  // },
   {
     name: "Zod",
     checker: (data: unknown) => ZodFeatureCollection.parse(data),
