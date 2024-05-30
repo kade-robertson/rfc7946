@@ -7,10 +7,13 @@ import { Bench } from "tinybench";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { validate } from "./ajv.js";
+import { Type } from "@sinclair/typebox";
+import { schemas } from "./deref.js";
 
-// const CompiledTypeboxFeatureCollection = TypeCompiler.Compile(
-//   TypeboxFeatureCollection
-// );
+const DerefTypeboxSchema = Type.Deref(TypeboxFeatureCollection, schemas);
+
+// const CompiledTypeboxFeatureCollection =
+//   TypeCompiler.Compile(DerefTypeboxSchema);
 
 const bench = new Bench({ time: 1000 });
 
@@ -20,10 +23,10 @@ const CHECKERS = [
     name: "Ajv",
     checker: (data: unknown) => validate(data),
   },
-  // {
-  //   name: "Typebox",
-  //   checker: (data: unknown) => Value.Check(TypeboxFeatureCollection, data),
-  // },
+  {
+    name: "Typebox",
+    checker: (data: unknown) => Value.Check(DerefTypeboxSchema, data),
+  },
   // {
   //   name: "Typebox (compiled)",
   //   checker: (data: unknown) => CompiledTypeboxFeatureCollection.Check(data),
